@@ -11,11 +11,11 @@ Event.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-User.hasMany(Event, {
+User.belongsToMany(Event, {
     through: 'userEvent'
 });
 
-Event.hasMany(User, {
+Event.belongsToMany(User, {
     through: 'userEvent'
 });
 
