@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Pat Barkley",
+        "username": "pbarkley",
+        "password": "password1234"
+    },
+    {
+        "name": "Henry Nguyen",
+        "username": "hnguyen",
+        "password": "1234password"
+    },
+    {
+        "name": "Lily Kot",
+        "username": "lkot",
+        "password": "12password34"
+    }
+]

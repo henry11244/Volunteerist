@@ -1,0 +1,29 @@
+[
+    {
+        "location": "Chicago",
+        "name": "Downtown March",
+        "description": "A march that is downtown",
+        "date": "2022-08-04",
+        "time": "02:00:00",
+        "category": "Protest",
+        "admin_id": "1"
+    },
+    {
+        "location": "San Jose",
+        "name": "Charity Fundraiser",
+        "description": "Fundraiser for a charity ",
+        "date": "2022-08-05",
+        "time": "02:00:00",
+        "category": "Fundraiser",
+        "admin_id": "2"
+    },
+    {
+        "location": "San Francisco",
+        "name": "Beach Cleanup",
+        "description": "A cleanup on a beach",
+        "date": "2022-08-06",
+        "time": "02:00:00",
+        "category": "Cleanup",
+        "admin_id": "3"
+    }
+]
