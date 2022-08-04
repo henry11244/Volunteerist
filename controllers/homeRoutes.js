@@ -38,7 +38,7 @@ router.get("/:category", withAuth, async (req, res) => {
   try {
     eventData = await Event.findAll({
       where: {
-        eventCategory: req.params.location,
+        eventCategory: req.params.category,
       },
     });
 
