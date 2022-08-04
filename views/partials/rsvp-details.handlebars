@@ -1,0 +1,11 @@
+{{#each userEvent as |userEvent|}}
+<div class="col-3" backgroundImage:`url(${{{userEvent.image_url}}})`>
+    <h4 class="">{{userEvent.name}}</h4>
+    <p>{{userEvent.description}}</p>
+    <hr>
+    <p class="mb-0">Location: {{userEvent.location}}</p>
+    <p class="mb-0">Date: {{userEvent.date}}</p>
+    <p class="mb-0">Time: {{userEvent.time}}</p>
+    <p class="mb-0">Created by: {{userEvent.username}}</p>
+</div>
+{{/each}}
