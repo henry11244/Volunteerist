@@ -63,17 +63,25 @@
         </div> -->
     <!-- </div>  -->
 
+
+
+
     <form class='col-3'>
         <h2 class="text-center">Login</h2>
-        <!-- Email input -->
+        <!-- Username input -->
         <div class="form-outline mb-4">
-            <input id="form2Example1" class="form-control" />
+            <input id="name" class="form-control" />
+            <label class="form-label" for="form2Example1">Name</label>
+        </div>
+        <!-- Username input -->
+        <div class="form-outline mb-4">
+            <input id="username" class="form-control" />
             <label class="form-label" for="form2Example1">Username</label>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-            <input id="form2Example2" class="form-control" />
+            <input id="password" class="form-control" />
             <label class="form-label" for="form2Example2">Password</label>
         </div>
 
@@ -86,23 +94,11 @@
         </div>
 
         <!-- Submit button -->
-        <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+        <button type="button" id='sign-in' class="btn btn-primary btn-block mb-4">Register</button>
 
         <!-- Register buttons -->
         <div class="text-center">
-            <p>Not a member? <a href="#!">Register</a></p>
-
-            <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-google"></i>
-            </button>
-
-            <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-github"></i>
-            </button>
+            <p>Already member? <a href="#!">Login</a></p>
         </div>
     </form>
 </body>
