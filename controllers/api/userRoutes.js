@@ -4,7 +4,7 @@ const { User } = require("../../models");
 // Send user to homepage when logged in
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
   res.render("login");
@@ -13,7 +13,7 @@ router.get("/login", (req, res) => {
 // Send user to homepage after signing up
 router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
   res.render("signup");
