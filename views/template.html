@@ -13,7 +13,7 @@
 
 <body>
 
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -50,57 +50,13 @@
         </div>
     </div>
 
-    Loop over each object in the projects array
-     <div id="card container d-flex">
-        <div class="col-3" backgroundImage:`url(${{{event.image_url}}})`>
-            <h4 class="">{{event.name}}</h4>
-            <p>{{event.description}}</p>
-            <hr>
-            <p class="mb-0">Location: {{event.location}}</p>
-            <p class="mb-0">Date: {{event.date}}</p>
-            <p class="mb-0">Time: {{event.time}}</p>
-            <p class="mb-0">Created by: {{event.username}}</p>
-        </div> -->
-    <!-- </div>  -->
+    <label for="cars">Filter By</label>
 
+    <select name="cars" id="cars">
+        <option value="volvo">Clean-up</option>
+        <option value="saab">Protest</option>
+        <option value="mercedes">Fundraiser</option>
+    </select>
 
-
-
-    <form class='col-3'>
-        <h2 class="text-center">Login</h2>
-        <!-- Username input -->
-        <div class="form-outline mb-4">
-            <input id="name" class="form-control" />
-            <label class="form-label" for="form2Example1">Name</label>
-        </div>
-        <!-- Username input -->
-        <div class="form-outline mb-4">
-            <input id="username" class="form-control" />
-            <label class="form-label" for="form2Example1">Username</label>
-        </div>
-
-        <!-- Password input -->
-        <div class="form-outline mb-4">
-            <input id="password" class="form-control" />
-            <label class="form-label" for="form2Example2">Password</label>
-        </div>
-
-        <!-- 2 column grid layout for inline styling -->
-        <div class="row mb-4">
-            <div class="col d-flex justify-content-center">
-                <!-- Checkbox -->
-
-            </div>
-        </div>
-
-        <!-- Submit button -->
-        <button type="button" id='sign-in' class="btn btn-primary btn-block mb-4">Register</button>
-
-        <!-- Register buttons -->
-        <div class="text-center">
-            <p>Already member? <a href="#!">Login</a></p>
-        </div>
-    </form>
-</body>
 
 </html>
