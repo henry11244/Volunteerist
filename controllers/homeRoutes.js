@@ -3,10 +3,14 @@ const { Event } = require("../models");
 const withAuth = require('../utils/auth');
 
 // GET route for all events
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const eventData = await Event.findAll();
-    res.json(eventData);
+    const events = eventData.map((event) => event.get({ plain: true }));
+
+    res.render('homepage', {
+      events,
+    })
   } catch (err) {
     res.status(400).json(err);
   }
