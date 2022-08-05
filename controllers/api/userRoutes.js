@@ -24,6 +24,11 @@ router.post("/", (req, res) => {
 
 // POST route to find a user by login info and check password
 router.post("/login", (req, res) => {
+  User.findOne({
+    where: {
+      username: req.body.username,
+    },
+  });
   if (!userData) {
     res.status(400).json({ message: "No account could be found!" });
     return;
