@@ -1,8 +1,13 @@
-const hompageEl = document.querySelector("#homepage")
-const dashboardEl = document.querySelector("#dashboard")
-const createEl = document.querySelector("#create")
-const logoutEl = document.querySelector("#logout")
-const loginEl = document.querySelector("#login")
+const userLoginEl = document.querySelector("#usernameLogin")
+const passLoginEl = document.querySelector("#passwordLogin")
+const nameSignupEl = document.querySelector("#nameSignup")
+const userSignupEl = document.querySelector("#usernameSignup")
+const passSignupEl = document.querySelector("#passwordSignup")
+
+
+function homepageFunc() {
+
+}
 
 
 hompageEl.addEventListener("click", )
