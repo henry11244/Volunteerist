@@ -11,10 +11,12 @@ const seedDatabase = async () => {
         individualHooks: true,
         returning: true
     });
+    console.log('Added Users')
 
     await Event.bulkCreate(eventData, {
         returning: true
     });
+    console.log('Added Events')
 
     process.exit(0);
 }

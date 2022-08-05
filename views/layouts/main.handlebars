@@ -38,17 +38,13 @@
         <img src="img/Volunteer.png" alt="vonteering picture">
     </div>
 
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Filter By
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Clean-up</a>
-            <a class="dropdown-item" href="#">Protest</a>
-            <a class="dropdown-item" href="#">Fundraiser</a>
-        </div>
-    </div>
+    <label for="cars">Filter By</label>
+
+    <select name="cars" id="cars">
+        <option value="volvo">Clean-up</option>
+        <option value="saab">Protest</option>
+        <option value="mercedes">Fundraiser</option>
+    </select>
     {{{body}}}
 
 </body>

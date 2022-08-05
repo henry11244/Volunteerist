@@ -1,0 +1,11 @@
+<p>My Events</p>
+
+{{#each user.events as |events|}}
+{{> events-details}}
+{{/each}}
+
+<p>RSVP Events</p>
+
+{{#each user.userEvent as |userEvent|}}
+{{> userEvent}}
+{{/each}}
