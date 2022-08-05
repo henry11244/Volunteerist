@@ -3,6 +3,6 @@ const userRoutes = require("./userRoutes.js");
 const dashboardRoutes = require("./dashboardRoutes.js");
 
 router.use("/users", userRoutes);
-router.use("/myevents", dashboardRoutes);
+router.use("/events", dashboardRoutes);
 
 module.exports = router;
