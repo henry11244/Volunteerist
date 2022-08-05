@@ -22,8 +22,10 @@ router.get("/signup", (req, res) => {
 module.exports = router;
 
 // POST route to create a new user
-router.post("/", (req, res) => {
+// Was previously just '/', changed to be more descriptive
+router.post("/signup", (req, res) => {
   User.create({
+    name: req.body.name,
     username: req.body.username,
     password: req.body.password,
   })
