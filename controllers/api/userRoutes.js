@@ -45,3 +45,34 @@ router.post("/login", (req, res) => {
     req.session.loggedIn = true;
   });
 });
+
+// POST route for user logout
+router.post("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+});
+
+// POST route to delete user
+router.delete("/user/:id", (req, res) => {
+  User.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((userData) => {
+      if (!userData) {
+        res.status(404).json({ message: "No user could be found!" });
+        return;
+      }
+      res.json(userData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+module.exports = router;
