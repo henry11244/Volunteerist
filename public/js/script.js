@@ -6,13 +6,51 @@ const passSignupEl = document.querySelector("#passwordSignup")
 const loginBtn = document.querySelector("#sign-in")
 const signupBtn = document.querySelector("#sign-up")
 
-function login() {
 
-}
+const loginFormHandler = async (event) => {
+    event.preventDefault();
 
-function signup() {
+    const username = userLoginEl.value.trim();
+    const password = passLoginEl.value.trim();
 
-}
+    if (username && password) {
+        const response = await fetch('/api/users/login', {
+            method: 'POST',
+            body: JSON.stringify({ username, password }),
+            headers: { 'Content-Type': 'application/json' },
+        });
 
-loginBtn.addEventListener("click", )
-signupBtn.addEventListener("click", )
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert(response.statusText);
+        }
+    }
+};
+
+const signupFormHandler = async (event) => {
+    event.preventDefault();
+
+    const name = nameSignupEl.value.trim();
+    const username = userSignupEl.value.trim();
+    const password = passSignupEl.value.trim();
+
+    if (username && email && password) {
+        console.log(JSON.stringify({ name, username, password }))
+        const response = await fetch('/api/users', {
+            method: 'POST',
+            body: JSON.stringify({ name, username, password }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert(response.statusText);
+        }
+    }
+};
+
+
+loginBtn.addEventListener("click", loginFormHandler)
+signupBtn.addEventListener("click", signupFormHandler)
