@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { Event } = require("./../models");
+const { Event } = require("../../models");
+const withAuth = require('../../utils/auth');
 
 // GET route for all events created by the user
 router.get("/dashboard", withAuth, async (req, res) => {
@@ -39,3 +40,5 @@ router.get("/dashboard", withAuth, async (req, res) => {
     console.log(err);
   }
 });
+
+module.exports = router;
