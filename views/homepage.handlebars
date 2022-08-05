@@ -1,3 +1,13 @@
+{{!-- Category filter --}}
+<label for="eventFilter">Filter By</label>
+
+<select name="eventFilter" id="eventFilter">
+    <option value="Clean-up">Clean-up</option>
+    <option value="Protest">Protest</option>
+    <option value="Fundriaser">Fundraiser</option>
+</select>
+
+
 <!-- Loop over each object in the projects array -->
 {{#each events as |event|}}
 <div class="col-3" backgroundImage:`url(${{{event.image_url}}})`>

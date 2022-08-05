@@ -1,6 +1,26 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+// Send user to homepage when logged in
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
+  res.render("login");
+});
+
+// Send user to homepage after signing up
+router.get("/signup", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
+  res.render("signup");
+});
+
+module.exports = router;
+
 // POST route to create a new user
 router.post("/", (req, res) => {
   User.create({
@@ -76,4 +96,3 @@ router.delete("/user/:id", (req, res) => {
 });
 
 module.exports = router;
-
