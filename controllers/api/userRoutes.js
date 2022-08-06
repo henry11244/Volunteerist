@@ -2,13 +2,13 @@ const router = require("express").Router();
 const { User } = require("../../models");
 
 // Send user to homepage when logged in
-router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/dashboard");
-    return;
-  }
-  res.render("login");
-});
+// router.get("/login", (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.redirect("/dashboard");
+//     return;
+//   }
+//   res.render("login");
+// });
 
 // Send user to homepage after signing up
 router.get("/signup", (req, res) => {
@@ -45,28 +45,36 @@ router.post("/signup", (req, res) => {
 });
 
 // POST route to find a user by login info and check password
-router.post("/login", (req, res) => {
-  User.findOne({
-    where: {
-      username: req.body.username,
-    },
-  });
-  if (!userData) {
-    res.status(400).json({ message: "No account could be found!" });
-    return;
-  }
-  const validPassword = userData.checkPassword(req.body.password);
+router.post("/login", async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
+    if (!userData) {
+      res.status(400).json({ message: "No account could be found!" });
+      return;
+    }
 
-  if (!validPassword) {
-    res.status(400).json({ message: "Password isn't valid!" });
-    return;
+    const validPassword = await userData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: "Password isn't valid!" });
+      return;
+    }
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.username = userData.username;
+      req.session.logged_in = true;
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    res.status(400).json(err);
   }
-  req.sessionStore.save(() => {
-    req.session.userId = userData.id;
-    req.session.username = userData.username;
-    req.session.loggedIn = true;
-  });
-});
+}
+
+);
 
 // POST route for user logout
 router.post("/logout", (req, res) => {
