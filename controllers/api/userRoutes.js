@@ -15,10 +15,10 @@ const { User } = require("../../models");
 // Was previously just '/', changed to be more descriptive
 router.post("/signup", async (req, res) => {
   try {
-    const userProject = await User.create({
+    const userData = await User.create({
       ...req.body,
     });
-    res.status(200).json(userProject);
+    res.status(200).json(userData);
     // User.create({
     //   name: req.body.name,
     //   username: req.body.username,
@@ -58,9 +58,9 @@ router.post("/login", async (req, res) => {
       return;
     }
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.userid = userData.id;
       req.session.username = userData.username;
-      req.session.logged_in = true;
+      req.session.loggedin = true;
       res.json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {

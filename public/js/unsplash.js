@@ -1,3 +1,5 @@
+
+
 fetch(`https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=0jqDAD-zXewS00iMXPqH9-EWmxQwXtr_3FGl5EqT8c0`)
     .then(response => response.json())
     .then(data => {
