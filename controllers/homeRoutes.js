@@ -23,48 +23,95 @@ router.get("/", async (req, res) => {
     res.status(400).json(err);
   }
 });
-
-// GET route for events by location
-router.get("/location/:location", withAuth, async (req, res) => {
+// GET route for all events
+router.post("/filter", async (req, res) => {
   try {
+    console.log(req.body.location)
     const eventData = await Event.findAll({
       where: {
-        eventLocation: req.params.location,
+        location: req.body.location,
+        category: req.body.category,
       },
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
     });
+    const events = eventData.map((event) => event.get({ plain: true }));
 
-    if (!eventData) {
-      res
-        .status(400)
-        .json({ message: "No events were found in this location!" });
-      return;
-    }
-
-    res.status(200).json(eventData);
+    res.render("homepage", {
+      events,
+    });
   } catch (err) {
-    console.log(err);
+    res.status(400).json(err);
   }
 });
 
-// GET route for events by category
-router.get("/category/:category", withAuth, async (req, res) => {
+
+
+// GET route for events by location
+router.get("/location/:id", async (req, res) => {
   try {
-    eventData = await Event.findAll({
+    console.log(req.body)
+    const createdEvents = await Event.findAll({
       where: {
-        eventCategory: req.params.category,
+        location: req.params.id,
       },
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },]
     });
-
-    if (!eventData) {
-      res
-        .status(400)
-        .json({ message: "No events were found in this category!" });
+    const events = createdEvents.map((event) => event.get({ plain: true }));
+    console.log(events);
+    res.render("homepage", {
+      events,
+    });
+    if (!createdEvents) {
+      res.status(404).json({ message: "No results" });
       return;
     }
   } catch (err) {
     console.log(err);
   }
 });
+
+// GET route for events by location
+router.get("/category/:id", async (req, res) => {
+  try {
+    console.log(req.body)
+    const createdEvents = await Event.findAll({
+      where: {
+        category: req.params.id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },]
+    });
+    const events = createdEvents.map((event) => event.get({ plain: true }));
+    console.log(events);
+    res.render("homepage", {
+      events,
+    });
+    if (!createdEvents) {
+      res.status(404).json({ message: "No results!" });
+      return;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+
+
+
+
+
 
 // GET route for all events RSVP'd to by the user
 router.get("/dashboard", withAuth, async (req, res) => {
