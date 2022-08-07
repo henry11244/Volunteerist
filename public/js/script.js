@@ -1,3 +1,6 @@
+const admin_id = sessionStorage.getItem("userid");
+
+
 function callback() {
     const nameEl = document.querySelector("#eventName")
     const dateEl = document.querySelector("#eventDate")
@@ -16,7 +19,7 @@ function callback() {
         const category = categoryEl.value.trim();
         const location = locationEl.value.trim();
         const description = descriptionEl.value.trim();
-        const admin_id = 1
+
 
         if (name && date && time && category && location && description) {
             const response = await fetch('/api/event/event', {
