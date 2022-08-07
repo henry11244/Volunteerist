@@ -114,15 +114,26 @@
 
                 {{#if loggedin}}
                 <li class="nav-item active">
-                    <a class="nav-link" id="logout" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" id="logout" href="">Logout<span class="sr-only">(current)</span></a>
                 </li>
 
                 <script>
-                    const loginFormHandler = async (event) => {
+                    const logoutHandler = async (event) => {
                         event.preventDefault();
                         sessionStorage.setItem("userid", null);
                         sessionStorage.setItem('loggedin', false)
-                    }
+                        const response = await fetch('/logout', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                        });
+
+                        if (response.ok) {
+                            document.location.replace('/');
+                        } else {
+                            alert(response.statusText);
+                        }
+                    };
+
                     const logout = document.querySelector("#logout")
                     logout.addEventListener("click", logoutHandler)
                 </script>

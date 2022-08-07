@@ -64,7 +64,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const createdEvents = await Event.findAll({
       where: {
-        admin_id: req.session.userId,
+        admin_id: req.session.userid,
       },
     });
 
@@ -79,6 +79,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     res.render("dashboard", {
       events,
       rsvp,
+      loggedin: true
     });
 
     if (!createdEvents) {
@@ -114,17 +115,15 @@ router.get("/signup", (req, res) => {
 });
 
 // Get route for user logout
-router.get("/logout", async (req, res) => {
-  try {
-    const eventData = await Event.findAll();
-    const events = eventData.map((event) => event.get({ plain: true }));
-    res.render("homepage", {
-      events,
-      loggedin: false,
+router.post('/logout', (req, res) => {
+  if (req.session.loggedin) {
+    req.session.destroy(() => {
+      res.status(204).end();
     });
-  } catch (err) {
-    res.status(400).json(err);
+  } else {
+    res.status(404).end();
   }
 });
+
 
 module.exports = router;
