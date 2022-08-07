@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Event, User } = require("../models");
+const { Event, User, userEvent } = require("../models");
 const withAuth = require("../utils/auth.js");
 
 // GET route for all events
@@ -76,11 +76,19 @@ router.get("/dashboard", withAuth, async (req, res) => {
       },
     });
 
-    const rsvpEvents = await Event.findAll({
+    const rsvpEvents = await userEvent.findAll({
+      include: {
+        model: Event,
+      },
       include: {
         model: User,
       },
+      where: {
+        user_id: req.session.userid,
+      },
     });
+
+    console.log(rsvpEvents)
 
     const events = createdEvents.map((event) => event.get({ plain: true }));
     const rsvp = rsvpEvents.map((event) => event.get({ plain: true }));
