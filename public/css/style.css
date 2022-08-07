@@ -1,3 +1,7 @@
+body {
+    background-color: #F5E8C7
+}
+
 img {
     display: block;
     margin-left: auto;
@@ -16,4 +20,14 @@ img {
 
 .nav-text:hover {
     color: gray;
+}
+
+.event-card {
+    background-color: #ECCCB2;
+    border: solid #AC7088 2px;
+}
+
+.event-container {
+    display: flex;
+    display: inline;
 }

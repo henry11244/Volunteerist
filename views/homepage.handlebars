@@ -1,24 +1,26 @@
 {{!-- Category filter --}}
+<br>
 <label for="eventFilter">Filter By</label>
-
 <select name="eventFilter" id="eventFilter">
     <option value="Clean-up">Clean-up</option>
     <option value="Protest">Protest</option>
     <option value="Fundriaser">Fundraiser</option>
 </select>
-
+<br>
+<br>
 
 <!-- Loop over each object in the projects array -->
 {{#each events as |event|}}
-<div class="col-3" backgroundImage:`url(${{{event.image_url}}})`>
-    <h4 class="">{{event.name}}</h4>
-    <p>{{event.description}}</p>
-    <hr>
-    <p class="mb-0">Location: {{event.location}}</p>
-    <p class="mb-0">Date: {{event.date}}</p>
-    <p class="mb-0">Time: {{event.time}}</p>
-    <p class="mb-0">Created by: {{event.username}}</p>
-    <br>
-    <br>
+<div class="event-container">
+    <div class="event-card col-3" backgroundImage:`url(${{{event.image_url}}})`>
+        <h4 class="">{{event.name}}</h4>
+        <p>{{event.description}}</p>
+        <hr>
+        <p class="mb-0">Location: {{event.location}}</p>
+        <p class="mb-0">Date: {{event.date}}</p>
+        <p class="mb-0">Time: {{event.time}}</p>
+        <p class="mb-0">Created by: {{event.username}}</p>
+        <br>
+    </div>
 </div>
 {{/each}}
