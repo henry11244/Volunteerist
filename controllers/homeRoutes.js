@@ -64,7 +64,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const createdEvents = await Event.findAll({
       where: {
-        admin_id: req.session.userid,
+        admin_id: 1,
       },
     });
 
@@ -76,6 +76,8 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
     const events = createdEvents.map((event) => event.get({ plain: true }));
     const rsvp = rsvpEvents.map((event) => event.get({ plain: true }));
+    console.log(events)
+    console.log(rsvp)
     res.render("dashboard", {
       events,
       rsvp,
@@ -95,14 +97,15 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+
 // Send user to homepage when logged in
-router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/dashboard");
-    return;
-  }
-  res.render("login");
-});
+// router.get("/login", (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.redirect("/dashboard");
+//     return;
+//   }
+//   res.render("login");
+// });
 
 
 // Send user to homepage after signing up
