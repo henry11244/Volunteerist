@@ -8,30 +8,43 @@
     <option value="Fundraiser">Fundraiser</option>
 </select>
 
+    {{!-- Category filter --}}
+    <br>
+    <label for="eventFilter">Filter By Category:</label>
+    <select name="eventFilter" id="eventFilter">
+        <option value="no-category">No Category Specified</option>
+        <option value="Clean-up">Clean-up</option>
+        <option value="Protest">Protest</option>
+        <option value="Fundraiser">Fundraiser</option>
+    </select>
+    <br>
+    <br>
 
-
-{{!-- Location filter --}}
-
-<label for="eventFilter">By Location:</label>
-<select name="eventFilter" id="locationFilter">
-    <option value="">No Location Specified</option>
-    <option value="boston">Boston</option>
-    <option value="charleston">Charleston</option>
-    <option value="chicago">Chicago</option>
-    <option value="Detroit">Detroit</option>
-    <option value="houston">Houston</option>
-    <option value="kansas-city">Kansas City</option>
-    <option value="los-angeles">Los Angeles</option>
-    <option value="memphis">Memphis</option>
-    <option value="nashville">Nashville</option>
-    <option value="new-york">New York</option>
-    <option value="portland">Portland</option>
-    <option value="san-diego">San Diego</option>
-    <option value="san-francisco">San Francisco</option>
-</select>
-
-
-<br>
+    {{!-- Location filter --}}
+    <br>
+    <label for="locationFilter">Filter By Location:</label>
+    <select name="locationFilter" id="locationFilter">
+        <option value="no-location">No Location Specified</option>
+        <option value="Atlanta">Atlanta</option>
+        <option value="boston">Boston</option>
+        <option value="charleston">Charleston</option>
+        <option value="chicago">Chicago</option>
+        <option value="denver">Denver</option>
+        <option value="detroit">Detroit</option>
+        <option value="houston">Houston</option>
+        <option value="kansas-city">Kansas City</option>
+        <option value="los-angeles">Los Angeles</option>
+        <option value="memphis">Memphis</option>
+        <option value="nashville">Nashville</option>
+        <option value="new-york">New York</option>
+        <option value="philadelphia">Philadelphia</option>
+        <option value="portland">Portland</option>
+        <option value="san-diego">San Diego</option>
+        <option value="san-francisco">San Francisco</option>
+        <option value="seattle">Seattle</option>
+    </select>
+    <br>
+    <br>
 
 <!-- Loop over each object in the projects array -->
 {{#each events as |event|}}

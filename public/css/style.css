@@ -1,5 +1,12 @@
+:root {
+    --beige: #F5E8C7;
+    --light-orange: #ECCCB2;
+    --light-pink: #DEB6AB;
+    --pink: #AC7088;
+}
+
 body {
-    background-color: #F5E8C7
+    background-color: var(--beige);
 }
 
 img {
@@ -11,7 +18,15 @@ img {
 }
 
 .nav {
-    background-color: #F5E8C7;
+    background-color: var(--beige);
+}
+
+.navbar-brand {
+    color: var(--pink);
+}
+
+.navbar-brand:hover {
+    color: black;
 }
 
 .nav-text {
@@ -19,17 +34,13 @@ img {
 }
 
 .nav-text:hover {
-    color: gray;
+    color: white;
+    background-color: var(--pink);
 }
 
-/* .filters {
-    display: flex;
-    display: inline-block;
-} */
-
 .event-card {
-    background-color: #ECCCB2;
-    border: solid #AC7088 2px;
+    background-color: var(--light-orange);
+    border: solid var(--pink) 2px;
     padding: 15px;
     width: 400px;
     height: 400px;
@@ -40,4 +51,24 @@ img {
     display: inline-block;
     justify-content: center;
     align-items: center;
+}
+
+/* Responsiveness for changes in viewport size */
+/* For desktops */
+@media screen and (min-width: 768px) {
+
+}
+
+/* For mobile phones */
+@media screen and (max-width: 768px) {
+    .event-container {
+        display: flex;
+    }
+    .nav {
+        display: flex;
+        font-size: 10px;
+    }
+    .img {
+        height: 100px;
+    }
 }
