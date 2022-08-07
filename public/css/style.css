@@ -22,6 +22,11 @@ img {
     color: gray;
 }
 
+/* .filters {
+    display: flex;
+    display: inline-block;
+} */
+
 .event-card {
     background-color: #ECCCB2;
     border: solid #AC7088 2px;
@@ -33,4 +38,6 @@ img {
 .event-container {
     display: flex;
     display: inline-block;
+    justify-content: center;
+    align-items: center;
 }
