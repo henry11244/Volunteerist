@@ -5,7 +5,14 @@ const withAuth = require("../utils/auth.js");
 // GET route for all events
 router.get("/", async (req, res) => {
   try {
-    const eventData = await Event.findAll();
+    const eventData = await Event.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ]
+    });
     const events = eventData.map((event) => event.get({ plain: true }));
 
     res.render("homepage", {
@@ -62,9 +69,10 @@ router.get("/category/:category", withAuth, async (req, res) => {
 // GET route for all events RSVP'd to by the user
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
+    console.log(req.body)
     const createdEvents = await Event.findAll({
       where: {
-        admin_id: 1,
+        admin_id: req.session.userid,
       },
     });
 
@@ -99,13 +107,13 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 
 // Send user to homepage when logged in
-// router.get("/login", (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect("/dashboard");
-//     return;
-//   }
-//   res.render("login");
-// });
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
+  res.render("login");
+});
 
 
 // Send user to homepage after signing up
