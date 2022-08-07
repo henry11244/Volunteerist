@@ -84,12 +84,12 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
     const events = createdEvents.map((event) => event.get({ plain: true }));
     const rsvp = rsvpEvents.map((event) => event.get({ plain: true }));
-    console.log(events)
-    console.log(rsvp)
+    console.log(events);
+    console.log(rsvp);
     res.render("dashboard", {
       events,
       rsvp,
-      loggedin: true
+      loggedin: true,
     });
 
     if (!createdEvents) {
@@ -105,7 +105,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-
 // Send user to homepage when logged in
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
@@ -115,18 +114,17 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-
 // Send user to homepage after signing up
 router.get("/signup", (req, res) => {
-  // if (req.session.loggedIn) {
-  //   res.redirect("/dashboard");
-  //   return;
-  // }
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
   res.render("signup");
 });
 
 // Get route for user logout
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.loggedin) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -135,6 +133,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
 
 module.exports = router;
