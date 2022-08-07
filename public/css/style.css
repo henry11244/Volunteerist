@@ -1,8 +1,11 @@
-/* * {
-    background-color: red;
-    color: red;
+.nav {
+    background-color: #F5E8C7;
 }
 
-#dashboard {
-    color: red;
-} */
+.nav-text {
+    color: black;
+}
+
+.nav-text:hover {
+    color: gray;
+}
