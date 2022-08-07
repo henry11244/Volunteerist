@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class userEvent extends Model {}
+class userEvent extends Model { }
 
 userEvent.init(
     {
@@ -32,6 +32,7 @@ userEvent.init(
         sequelize,
         timestamps: false,
         freezeTableName: true,
+        underscored: true,
         modelName: 'userEvent'
     }
 );
