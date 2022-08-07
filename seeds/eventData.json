@@ -9,7 +9,7 @@
         "admin_id": "1"
     },
     {
-        "location": "San Jose",
+        "location": "San-Jose",
         "name": "Charity Fundraiser",
         "description": "Fundraiser for a charity ",
         "date": "2022-08-05",
@@ -18,7 +18,7 @@
         "admin_id": "2"
     },
     {
-        "location": "San Francisco",
+        "location": "San-Francisco",
         "name": "Beach Cleanup",
         "description": "A cleanup on a beach",
         "date": "2022-08-06",
