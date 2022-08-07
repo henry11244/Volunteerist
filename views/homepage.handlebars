@@ -4,7 +4,7 @@
 <select name="eventFilter" id="eventFilter">
     <option value="Clean-up">Clean-up</option>
     <option value="Protest">Protest</option>
-    <option value="Fundriaser">Fundraiser</option>
+    <option value="Fundraiser">Fundraiser</option>
 </select>
 <br>
 <br>
@@ -12,7 +12,8 @@
 <!-- Loop over each object in the projects array -->
 {{#each events as |event|}}
 <div class="event-container">
-    <div class="event-card col-3" backgroundImage:`url(${{{event.image_url}}})`>
+    <div class="event-card mb-2">
+        <img backgroundImage:`url(${{{event.image_url}}})`>
         <h4 class="">{{event.name}}</h4>
         <p>{{event.description}}</p>
         <hr>
