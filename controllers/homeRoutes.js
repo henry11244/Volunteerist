@@ -10,6 +10,7 @@ router.get("/", async (req, res) => {
 
     res.render("homepage", {
       events,
+      loggedin: req.session.loggedin,
     });
   } catch (err) {
     res.status(400).json(err);
@@ -110,6 +111,20 @@ router.get("/signup", (req, res) => {
   //   return;
   // }
   res.render("signup");
+});
+
+// Get route for user logout
+router.get("/logout", async (req, res) => {
+  try {
+    const eventData = await Event.findAll();
+    const events = eventData.map((event) => event.get({ plain: true }));
+    res.render("homepage", {
+      events,
+      loggedin: false,
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;

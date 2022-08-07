@@ -112,10 +112,22 @@
 
                 </li>
 
-                {{#if logged_in}}
+                {{#if loggedin}}
                 <li class="nav-item active">
-                    <a class="nav-link" id="logout" href="#">Logout<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" id="logout" href="/logout">Logout<span class="sr-only">(current)</span></a>
                 </li>
+
+                <script>
+                    const loginFormHandler = async (event) => {
+                        event.preventDefault();
+                        sessionStorage.setItem("userid", null);
+                        sessionStorage.setItem('loggedin', false)
+                    }
+                    const logout = document.querySelector("#logout")
+                    logout.addEventListener("click", logoutHandler)
+                </script>
+
+
                 {{else}}
                 <li class="nav-item active">
                     <a class="nav-link" id="logout" href="/login">Login<span class="sr-only">(current)</span></a>
