@@ -21,6 +21,7 @@
   "homepage": "https://github.com/henry11244/Volunteerist#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "bootstrap": "^5.2.0",
     "connect-session-sequelize": "^7.1.4",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
