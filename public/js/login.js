@@ -20,6 +20,9 @@ const loginFormHandler = async (event) => {
         });
 
         if (response.ok) {
+            const data = await response.json();
+            sessionStorage.setItem("userid", data?.user?.id);
+            sessionStorage.setItem('loggedin', true)
             document.location.replace('/');
         } else {
             alert(response.statusText);

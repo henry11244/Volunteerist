@@ -71,11 +71,16 @@ router.post("/login", async (req, res) => {
 );
 
 // POST route for user logout
-router.post("/logout", (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
+router.get("/logout", async (req, res) => {
+  try {
+    const eventData = await Event.findAll();
+    const events = eventData.map((event) => event.get({ plain: true }));
+    res.render("homepage", {
+      events,
+      loggedin: false,
     });
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 

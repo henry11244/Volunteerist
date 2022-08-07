@@ -6,7 +6,6 @@ router.post("/event", async (req, res) => {
     try {
         const eventData = await Event.create({
             ...req.body,
-
         });
         res.status(200).json(eventData);
 

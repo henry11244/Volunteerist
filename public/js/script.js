@@ -1,3 +1,7 @@
+
+// for creation of new events through modal
+const admin_id = sessionStorage.getItem("userid");
+
 function callback() {
     const nameEl = document.querySelector("#eventName")
     const dateEl = document.querySelector("#eventDate")
@@ -16,7 +20,7 @@ function callback() {
         const category = categoryEl.value.trim();
         const location = locationEl.value.trim();
         const description = descriptionEl.value.trim();
-        const admin_id = 1
+
 
         if (name && date && time && category && location && description) {
             const response = await fetch('/api/event/event', {
@@ -39,3 +43,23 @@ function callback() {
 const createbtn = document.querySelector("#createbtn")
 createbtn.addEventListener("click", callback)
 
+// dashboard view
+const dashboard = async (event) => {
+    event.preventDefault();
+
+    const response = await fetch('/dashboard', {
+        method: 'GET',
+        body: JSON.stringify({ admin_id }),
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert(response.statusText);
+    }
+}
+
+
+const dashboardbtn = document.querySelector("#dashboard")
+createbtn.addEventListener("click", dashboard)
