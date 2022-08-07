@@ -1,8 +1,33 @@
-/* * {
-    background-color: red;
-    color: red;
+body {
+    background-color: #F5E8C7
 }
 
-#dashboard {
-    color: red;
-} */
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 300px;
+}
+
+.nav {
+    background-color: #F5E8C7;
+}
+
+.nav-text {
+    color: black;
+}
+
+.nav-text:hover {
+    color: gray;
+}
+
+.event-card {
+    background-color: #ECCCB2;
+    border: solid #AC7088 2px;
+}
+
+.event-container {
+    display: flex;
+    display: inline;
+}
