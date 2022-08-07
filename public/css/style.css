@@ -1,5 +1,11 @@
+:root {
+    --beige: #F5E8C7;
+    --light-orange: #ECCCB2;
+    --pink: #AC7088;
+}
+
 body {
-    background-color: #F5E8C7
+    background-color: var(--beige);
 }
 
 img {
@@ -11,7 +17,7 @@ img {
 }
 
 .nav {
-    background-color: #F5E8C7;
+    background-color: var(--beige);
 }
 
 .nav-text {
@@ -19,17 +25,13 @@ img {
 }
 
 .nav-text:hover {
-    color: gray;
+    color: white;
+    background-color: var(--pink);
 }
 
-/* .filters {
-    display: flex;
-    display: inline-block;
-} */
-
 .event-card {
-    background-color: #ECCCB2;
-    border: solid #AC7088 2px;
+    background-color: var(--light-orange);
+    border: solid var(--pink) 2px;
     padding: 15px;
     width: 400px;
     height: 400px;
