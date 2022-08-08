@@ -7,7 +7,7 @@ const locationfilterBtn = document.querySelector("#locationFilter")
 
 const locationFilterHandler = async (event) => {
     event.preventDefault();
-
+    console.log('test')
     const location = locationFilter.value.trim();
 
     console.log(location)
