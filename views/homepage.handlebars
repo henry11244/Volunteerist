@@ -10,7 +10,7 @@
 </select>
 
 {{!-- Location filter --}}
-< <label for="locationFilter">Filter By Location:</label>
+<label for="locationFilter">Filter By Location:</label>
     <select name="locationFilter" id="locationFilter">
         <option value="no-location">No Location Specified</option>
         <option value="Atlanta">Atlanta</option>
@@ -35,9 +35,9 @@
     <br>
 
     <!-- Loop over each object in the projects array -->
+    <div class="d-flex flex-row">
     {{#each events as |event|}}
-    <div class="event-container">
-        <div class="event-card mb-2" backgroundImage:`url(${{{event.image_url}}})>
+        <div class="event-card mx-auto col-4">
             <h4 class="">{{event.name}}</h4>
             <p>{{event.description}}</p>
             <hr>
@@ -47,12 +47,9 @@
             <p class="mb-0">Created by: {{user.username}}</p>
             <br>
 
-
-            <button type="button" class="btn btn-danger rsvp" data-id="{{event.id}}">RSVP</button>
-
+            <button type="button" class="btn rsvp" data-id="{{event.id}}">RSVP</button>
         </div>
-
-    </div>
     {{/each}}
+     </div>
 
     <script src="../../js/homepage.js"></script>
