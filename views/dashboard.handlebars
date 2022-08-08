@@ -1,4 +1,4 @@
-<p>My Events</p>
+<h2>My Events</h2>
 
 
 {{#each events as |event|}}
@@ -10,12 +10,12 @@
         <p class="mb-0">Location: {{event.location}}</p>
         <p class="mb-0">Date: {{event.date}}</p>
         <p class="mb-0">Time: {{event.time}}</p>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-danger delete" id="delete" data-id="{{event.id}}">Delete</button>
         <br>
     </div>
     {{/each}}
 
-    <p>RSVP Events</p>
+    <h2>RSVP Events</h2>
 
     {{#each rsvp as |event|}}
     <div class="event-container">
@@ -30,3 +30,5 @@
             <br>
         </div>
         {{/each}}
+
+        <script src="js/dashboard.js"></script>
