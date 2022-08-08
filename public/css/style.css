@@ -42,15 +42,15 @@ img {
     background-color: var(--light-orange);
     border: solid var(--pink) 2px;
     padding: 15px;
-    width: 400px;
-    height: 400px;
 }
 
 .event-container {
-    display: flex;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+.rsvp {
+    color: white;
+    background-color: var(--pink);
 }
 
 /* Responsiveness for changes in viewport size */
