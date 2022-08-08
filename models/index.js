@@ -31,17 +31,20 @@ userEvent.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-User.belongsToMany(Event, {
-  through: "userEvent",
-  foreignKey: "user_id",
-  foreignKey: "event_id",
-});
 
 Event.belongsToMany(User, {
   through: "userEvent",
-  foreignKey: "user_id",
+  as: 'eventsforuser',
   foreignKey: "event_id",
 });
+
+User.belongsToMany(Event, {
+  through: "userEvent",
+  as: 'userforevent',
+  foreignKey: "user_id",
+
+});
+
 
 module.exports = {
   User,

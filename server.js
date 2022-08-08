@@ -5,6 +5,7 @@ const routes = require("./controllers");
 const helpers = require("./utils/helpers.js");
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({ helpers });
+const mysql = require('mysql');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -37,3 +38,5 @@ app.set("view engine", "handlebars");
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
+
+module.exports = mysql
