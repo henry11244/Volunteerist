@@ -24,30 +24,30 @@ router.get("/", async (req, res) => {
   }
 });
 // GET route for all events
-router.post("/filter", async (req, res) => {
-  try {
-    console.log(req.body.location)
-    const eventData = await Event.findAll({
-      where: {
-        location: req.body.location,
-        category: req.body.category,
-      },
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
-    });
-    const events = eventData.map((event) => event.get({ plain: true }));
+// router.post("/filter", async (req, res) => {
+//   try {
+//     console.log(req.body.location)
+//     const eventData = await Event.findAll({
+//       where: {
+//         location: req.body.location,
+//         category: req.body.category,
+//       },
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['username'],
+//         },
+//       ],
+//     });
+//     const events = eventData.map((event) => event.get({ plain: true }));
 
-    res.render("homepage", {
-      events,
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     res.render("homepage", {
+//       events,
+//     });
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 
 
@@ -108,11 +108,6 @@ router.get("/category/:id", async (req, res) => {
 });
 
 
-
-
-
-
-
 // GET route for all events RSVP'd to by the user
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
@@ -125,10 +120,11 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
     const rsvpEvents = await userEvent.findAll({
       include: {
-        model: Event,
+        model: Event, attributes: ['time'],
       },
       include: {
         model: User,
+        attributes: ['username'],
       },
       where: {
         user_id: req.session.userid,
@@ -186,6 +182,29 @@ router.post("/logout", (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.post("/rsvp/", async (req, res) => {
+  try {
+    const usereventData = await userEvent.create({
+      ...req.body,
+    });
+    res.status(200).json(usereventData);
+    userEvent.create({
+      event_id: req.body.event_id,
+      user_id: req.body.user_id,
+
+    }).then((userData) => {
+      req.sessionStore.save(() => {
+        req.session.userId = req.body.user_id;
+        req.session.loggedIn = true;
+
+        res.json(usereventData);
+      });
+    });
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 

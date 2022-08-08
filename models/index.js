@@ -33,13 +33,15 @@ userEvent.belongsTo(User, {
 
 User.belongsToMany(Event, {
   through: "userEvent",
+  as: 'userforevent',
   foreignKey: "user_id",
-  foreignKey: "event_id",
+
 });
 
 Event.belongsToMany(User, {
   through: "userEvent",
-  foreignKey: "user_id",
+  as: 'eventsforuser',
+
   foreignKey: "event_id",
 });
 
