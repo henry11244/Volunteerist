@@ -24,7 +24,14 @@ const signupFormHandler = async (event) => {
         } else {
             alert(response.statusText);
         }
+    } else if (!name) {
+        alert("You must have a name!")
+    } else if (!username) {
+        alert("Please enter a valid username")
+    } else if (!password) {
+        alert("Please enter a valid password")
     }
+
 };
 
 

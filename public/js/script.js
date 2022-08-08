@@ -34,7 +34,20 @@ function callback() {
             } else {
                 alert(response.statusText);
             }
+        } else if (!name) {
+            alert("Event must have a name!")
+        } else if (!date) {
+            alert("Event must have a date!")
+        } else if (!time) {
+            alert("Event must have a time!")
+        } else if (!category) {
+            alert("Event must have a category!")
+        } else if (!location) {
+            alert("Event must have a location!")
+        } else if (!description) {
+            alert("Event must have a description!")
         }
+        
     };
 
     newEventBtn.addEventListener("click", newEventHandler)
