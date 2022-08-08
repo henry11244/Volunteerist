@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Event, User, userEvent } = require("../models");
 const withAuth = require("../utils/auth.js");
 
+
 // GET route for all events
 router.get("/", async (req, res) => {
   try {
@@ -23,33 +24,6 @@ router.get("/", async (req, res) => {
     res.status(400).json(err);
   }
 });
-// GET route for all events
-// router.post("/filter", async (req, res) => {
-//   try {
-//     console.log(req.body.location)
-//     const eventData = await Event.findAll({
-//       where: {
-//         location: req.body.location,
-//         category: req.body.category,
-//       },
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['username'],
-//         },
-//       ],
-//     });
-//     const events = eventData.map((event) => event.get({ plain: true }));
-
-//     res.render("homepage", {
-//       events,
-//     });
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
-
-
 
 // GET route for events by location
 router.get("/location/:id", async (req, res) => {
@@ -118,28 +92,33 @@ router.get("/dashboard", withAuth, async (req, res) => {
       },
     });
 
-    const rsvpEvents = await userEvent.findAll({
-      include: {
-        model: Event, attributes: ['time'],
-      },
-      include: {
+    const rsvpEvents = await Event.findAll({
+
+      include: [{
+        model: userEvent,
+        where: {
+          user_id: req.session.userid,
+        },
+
+      }],
+      include: [{
         model: User,
         attributes: ['username'],
-      },
-      where: {
-        user_id: req.session.userid,
-      },
-    });
 
-    console.log(rsvpEvents)
+      }],
+    },
+    );
+
+
 
     const events = createdEvents.map((event) => event.get({ plain: true }));
     const rsvp = rsvpEvents.map((event) => event.get({ plain: true }));
     console.log(events);
     console.log(rsvp);
     res.render("dashboard", {
-      events,
       rsvp,
+      events,
+
       loggedin: true,
     });
 
