@@ -53,6 +53,18 @@ img {
     background-color: var(--pink);
 }
 
+.form-h2 {
+    margin-top: 15px;
+}
+
+.gutters {
+    width: 85%;
+}
+
+.filter {
+    padding-left: 15px;
+}
+
 /* Responsiveness for changes in viewport size */
 /* For desktops */
 @media screen and (min-width: 768px) {
