@@ -28,6 +28,7 @@ Our site is deployed through heroku [HERE](https://volunteerists.herokuapp.com/)
 
 ## Site Demonstration
 
+
 Below is a demonstration of a validated user creating a new event through our Material Design Bootstrap modal. The event is then added to the homepage and to their dashboard under "My Events."
 
 ![event-creation-demo](public/img/event-creation-demo.gif)
@@ -38,6 +39,10 @@ Below is a demonstration of a validated user creating a new event through our Ma
 * The events can be filtered by category and location using the filter drop-down
 * Once you login, by navigating to the login page through the nav bar, you may view your dashboard containing events that you have created and have RSVP to
 * Once you login, you may also create new events using the link in the navigation bar. 
+
+Below is a demonstration of a validated user creating a new event through our Material Design Bootstrap modal. The event is then added to the homepage and to their dashboard under "My Events."
+
+![event-creation-demo](public/img/event-creation-demo.gif)
 
 ## Code Snippet
 
@@ -68,6 +73,14 @@ The code snippet below is from a handlebars template used to render events from 
 - [Lily Kot](https://github.com/lilyannekot)
 - [Henry Nguyen](https://github.com/henry11244)
 
-## Contact
 
 Repository Link: [https://github.com/henry11244/Volunteerist](https://github.com/henry11244/Volunteerist)
+
+
+
+## Credits
+
+- [Pat Barkley](https://github.com/pbarkley)
+- [Lily Kot](https://github.com/lilyannekot)
+- [Henry Nguyen](https://github.com/henry11244)
+
