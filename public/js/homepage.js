@@ -8,6 +8,11 @@ const locationFilterHandler = async (event) => {
   event.preventDefault();
   const location = locationFilter.value.trim();
 
+  console.log("test");
+  const location = locationFilter.value.trim();
+
+  console.log(location);
+
   if (location) {
     const response = await fetch(`/location/${location}`, {
       method: "GET",
@@ -32,6 +37,7 @@ const categoryFilterHandler = async (event) => {
 
   const category = categoryFilter.value.trim();
 
+  console.log(category);
 
   if (location) {
     const response = await fetch(`/category/${category}`, {

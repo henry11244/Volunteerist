@@ -26,9 +26,7 @@ router.post("/login", async (req, res) => {
       res.status(400).json({ message: "No account could be found!" });
       return;
     }
-
     const validPassword = await userData.checkPassword(req.body.password);
-
     if (!validPassword) {
       res.status(400).json({ message: "Password isn't valid!" });
       return;
@@ -56,26 +54,6 @@ router.get("/logout", async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-});
-
-// POST route to delete user
-router.delete("/user/:id", (req, res) => {
-  User.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((userData) => {
-      if (!userData) {
-        res.status(404).json({ message: "No user could be found!" });
-        return;
-      }
-      res.json(userData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
 });
 
 module.exports = router;

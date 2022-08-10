@@ -42,15 +42,27 @@ img {
     background-color: var(--light-orange);
     border: solid var(--pink) 2px;
     padding: 15px;
-    width: 400px;
-    height: 400px;
 }
 
 .event-container {
-    display: flex;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+.btn {
+    color: white;
+    background-color: var(--pink);
+}
+
+.form-h2 {
+    margin-top: 15px;
+}
+
+.gutters {
+    width: 85%;
+}
+
+.filter {
+    padding-left: 15px;
 }
 
 /* Responsiveness for changes in viewport size */

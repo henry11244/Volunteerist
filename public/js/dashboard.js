@@ -1,3 +1,6 @@
+
+console.log('test')
+
 const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
         const eventId = event.target.getAttribute('data-id');
