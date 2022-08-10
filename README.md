@@ -1,54 +1,36 @@
 # Volunteerist
- 
-<div id="top"></div>
 
-<br />
-<div align="center">
-
-
-<h3 align="center">Volunteerist</h3>
-
-  <p align="center">
-    Application for creating, managing and RSVPing to volunteer events
-    <br />
-  </p>
-</div>
-
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#instructions">Instructions</a></li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#collaborators">Collaborators</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
-
-## About The Project
+## Description
 
 Volunteerist is an event hosting site with an emphasis on volunteer work. Users can view created events, or login to create their own and RSVP for other events. Users also have the ability to filter by location and category of event.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## Table of Contents
 
-### Tools
+- [Languages and Technology Used](#languages-and-technology-used)
+- [Deployed Link](#deployed-link)
+- [Project Demonstration](#project-demonstration)
+- [Usage](#usage)
+- [Code Snippet](#code-snippet)
+- [Credits](#credits)
 
-* JavaScript
-* CSS
-* SQL
-* Node.js
-* Handlebar.js
+## Languages and Technologies Used
 
+- CSS
+- JavaScript
+- SQL
+- Handlebars
+- Express.js
+- Bootstrap and Material Design Bootstrap
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## Deployed Link
 
-## Instructions
+Our site is deployed through heroku [HERE](https://volunteerists.herokuapp.com/)!
 
-Navigate to the following link to access the live application: [Volunteerist](https://volunteerists.herokuapp.com/)
+## Site Demonstration
 
+Below is a demonstration of a validated user creating a new event through our Material Design Bootstrap modal. The event is then added to the homepage and to their dashboard under "My Events."
 
+![event-creation-demo](public/img/event-creation-demo.gif)
 
 ## Usage
 
@@ -57,20 +39,28 @@ Navigate to the following link to access the live application: [Volunteerist](ht
 * Once you login, by navigating to the login page through the nav bar, you may view your dashboard containing events that you have created and have RSVP to
 * Once you login, you may also create new events using the link in the navigation bar. 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## Code Snippet
 
+The code snippet below is from a handlebars template used to render events from the database onto the homepage. Using bootstrap, after three event cards (each taking up 1/3 of the page) have been placed in a row, flex-wrap creates a new row where another 3 cards can be inserted.
 
+```
+<div class="d-flex flex-row flex-wrap">
+    {{#each events as |event|}}
+        <div class="event-card mx-auto col-4">
+            <h4 class="">{{event.name}}</h4>
+            <p>{{event.description}}</p>
+            <hr>
+            <p class="mb-0">Location: {{event.location}}</p>
+            <p class="mb-0">Date: {{event.date}}</p>
+            <p class="mb-0">Time: {{event.time}}</p>
+            <p class="mb-0">Created by: {{user.username}}</p>
+            <br>
 
-![Filter function](public/img/filter-sort.gif)
-![Logging in](public/img/login-function.gif)
-![Logging out](public/img/logout-function.gif)
-
-## License
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-<br>Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+            <button type="button" class="btn" data-id="{{event.id}}">RSVP</button>
+        </div>
+    {{/each}}
+     </div>
+```
 
 ## Collaborators
 
@@ -81,5 +71,3 @@ Navigate to the following link to access the live application: [Volunteerist](ht
 ## Contact
 
 Repository Link: [https://github.com/henry11244/Volunteerist](https://github.com/henry11244/Volunteerist)
-
-
