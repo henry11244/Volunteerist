@@ -11,7 +11,7 @@ Volunteerist is an event hosting site with an emphasis on volunteer work. Users 
 - [Project Demonstration](#project-demonstration)
 - [Usage](#usage)
 - [Code Snippet](#code-snippet)
-- [Credits](#credits)
+- [Collaborators](#collaborators)
 
 ## Languages and Technologies Used
 
@@ -75,12 +75,3 @@ The code snippet below is from a handlebars template used to render events from 
 
 
 Repository Link: [https://github.com/henry11244/Volunteerist](https://github.com/henry11244/Volunteerist)
-
-
-
-## Credits
-
-- [Pat Barkley](https://github.com/pbarkley)
-- [Lily Kot](https://github.com/lilyannekot)
-- [Henry Nguyen](https://github.com/henry11244)
-
