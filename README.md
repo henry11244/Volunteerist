@@ -28,13 +28,21 @@ Our site is deployed through heroku [HERE](https://volunteerists.herokuapp.com/)
 
 ## Site Demonstration
 
+
 Below is a demonstration of a validated user creating a new event through our Material Design Bootstrap modal. The event is then added to the homepage and to their dashboard under "My Events."
 
 ![event-creation-demo](public/img/event-creation-demo.gif)
 
 ## Usage
 
-Currently, the only functionality available to users who are not logged in is the ability to view events. If you would like to create your own or RSVP to other events, you will need to register an account. You can do this by clicking the Login button in the navbar, and then clicking Register at the bottom of the login page. To register, you will need to enter your name, a username, and a password. To create an event, you will need to click the Create Event button in the navbar, and then fill out the modal which will pop up on your screen.
+* Once you navigate to the live applicaiton linked above, you are presented with a hompage that contains a list of volunteering events you may RSVP to.
+* The events can be filtered by category and location using the filter drop-down
+* Once you login, by navigating to the login page through the nav bar, you may view your dashboard containing events that you have created and have RSVP to
+* Once you login, you may also create new events using the link in the navigation bar. 
+
+Below is a demonstration of a validated user creating a new event through our Material Design Bootstrap modal. The event is then added to the homepage and to their dashboard under "My Events."
+
+![event-creation-demo](public/img/event-creation-demo.gif)
 
 ## Code Snippet
 
@@ -59,8 +67,20 @@ The code snippet below is from a handlebars template used to render events from 
      </div>
 ```
 
+## Collaborators
+
+- [Pat Barkley](https://github.com/pbarkley)
+- [Lily Kot](https://github.com/lilyannekot)
+- [Henry Nguyen](https://github.com/henry11244)
+
+
+Repository Link: [https://github.com/henry11244/Volunteerist](https://github.com/henry11244/Volunteerist)
+
+
+
 ## Credits
 
 - [Pat Barkley](https://github.com/pbarkley)
 - [Lily Kot](https://github.com/lilyannekot)
 - [Henry Nguyen](https://github.com/henry11244)
+
