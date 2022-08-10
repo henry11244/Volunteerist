@@ -28,7 +28,6 @@ router.get("/", async (req, res) => {
 // GET route for events by location
 router.get("/location/:id", async (req, res) => {
   try {
-    console.log(req.body)
     const createdEvents = await Event.findAll({
       where: {
         location: req.params.id,
@@ -40,7 +39,6 @@ router.get("/location/:id", async (req, res) => {
         },]
     });
     const events = createdEvents.map((event) => event.get({ plain: true }));
-    console.log(events);
     res.render("homepage", {
       events,
     });
@@ -56,7 +54,6 @@ router.get("/location/:id", async (req, res) => {
 // GET route for events by location
 router.get("/category/:id", async (req, res) => {
   try {
-    console.log(req.body)
     const createdEvents = await Event.findAll({
       where: {
         category: req.params.id,
@@ -68,7 +65,6 @@ router.get("/category/:id", async (req, res) => {
         },]
     });
     const events = createdEvents.map((event) => event.get({ plain: true }));
-    console.log(events);
     res.render("homepage", {
       events,
     });
@@ -85,7 +81,6 @@ router.get("/category/:id", async (req, res) => {
 // GET route for all events RSVP'd to by the user
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    console.log(req.body)
     const createdEvents = await Event.findAll({
       where: {
         admin_id: req.session.userid,
@@ -113,8 +108,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
     const events = createdEvents.map((event) => event.get({ plain: true }));
     const rsvp = rsvpEvents.map((event) => event.get({ plain: true }));
-    console.log(events);
-    console.log(rsvp);
     res.render("dashboard", {
       rsvp,
       events,
