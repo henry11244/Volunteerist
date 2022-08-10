@@ -16,45 +16,45 @@
 
 {{!-- Location filter --}}
 <label for="locationFilter" class="filter">Filter By Location:</label>
-    <select name="locationFilter" id="locationFilter">
-        <option value="no-location">No Location Specified</option>
-        <option value="Atlanta">Atlanta</option>
-        <option value="boston">Boston</option>
-        <option value="charleston">Charleston</option>
-        <option value="chicago">Chicago</option>
-        <option value="denver">Denver</option>
-        <option value="detroit">Detroit</option>
-        <option value="houston">Houston</option>
-        <option value="kansas-city">Kansas City</option>
-        <option value="los-angeles">Los Angeles</option>
-        <option value="memphis">Memphis</option>
-        <option value="nashville">Nashville</option>
-        <option value="new-york">New York</option>
-        <option value="philadelphia">Philadelphia</option>
-        <option value="portland">Portland</option>
-        <option value="san-diego">San Diego</option>
-        <option value="san-francisco">San Francisco</option>
-        <option value="seattle">Seattle</option>
-    </select>
+<select name="locationFilter" id="locationFilter">
+    <option value="no-location">No Location Specified</option>
+    <option value="Atlanta">Atlanta</option>
+    <option value="boston">Boston</option>
+    <option value="charleston">Charleston</option>
+    <option value="chicago">Chicago</option>
+    <option value="denver">Denver</option>
+    <option value="detroit">Detroit</option>
+    <option value="houston">Houston</option>
+    <option value="kansas-city">Kansas City</option>
+    <option value="los-angeles">Los Angeles</option>
+    <option value="memphis">Memphis</option>
+    <option value="nashville">Nashville</option>
+    <option value="new-york">New York</option>
+    <option value="philadelphia">Philadelphia</option>
+    <option value="portland">Portland</option>
+    <option value="san-diego">San Diego</option>
+    <option value="san-francisco">San Francisco</option>
+    <option value="seattle">Seattle</option>
+</select>
 
-    <br>
+<br>
 
-    <!-- Loop over each object in the projects array -->
-    <div class="d-flex flex-row flex-wrap">
+<!-- Loop over each object in the projects array -->
+<div class="d-flex flex-row flex-wrap">
     {{#each events as |event|}}
-        <div class="event-card mx-auto col-4">
-            <h4 class="">{{event.name}}</h4>
-            <p>{{event.description}}</p>
-            <hr>
-            <p class="mb-0">Location: {{event.location}}</p>
-            <p class="mb-0">Date: {{event.date}}</p>
-            <p class="mb-0">Time: {{event.time}}</p>
-            <p class="mb-0">Created by: {{user.username}}</p>
-            <br>
+    <div class="event-card mx-auto col-4">
+        <h4 class="">{{event.name}}</h4>
+        <p>{{event.description}}</p>
+        <hr>
+        <p class="mb-0">Location: {{event.location}}</p>
+        <p class="mb-0">Date: {{event.date}}</p>
+        <p class="mb-0">Time: {{event.time}}</p>
+        <p class="mb-0">Created by: {{user.username}}</p>
+        <br>
 
-            <button type="button" class="btn" data-id="{{event.id}}">RSVP</button>
-        </div>
+        <button type="button" class="btn rsvp" data-id="{{event.id}}">RSVP</button>
+    </div>
     {{/each}}
-     </div>
+</div>
 
-    <script src="../../js/homepage.js"></script>
+<script src="../../js/homepage.js"></script>
