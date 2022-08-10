@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
       ]
     });
     const events = eventData.map((event) => event.get({ plain: true }));
-
     res.render("homepage", {
       events,
       loggedin: req.session.loggedin,
@@ -87,27 +86,30 @@ router.get("/dashboard", withAuth, async (req, res) => {
       },
     });
 
-    const rsvpEvents = await Event.findAll({
-
+    const rsvpEvents = await userEvent.findAll({
       include: [{
-        model: userEvent,
-        where: {
-          user_id: req.session.userid,
-        },
+        model: Event,
+        on: Event.id = userEvent.event_id,
+
+        include: [{
+          model: User,
+          on: User.id = userEvent.user_id,
+          attributes: ['username'],
+
+        }],
 
       }],
-      include: [{
-        model: User,
-        attributes: ['username'],
 
-      }],
+      where: {
+        user_id: req.session.userid,
+      },
     },
     );
 
-
-
     const events = createdEvents.map((event) => event.get({ plain: true }));
     const rsvp = rsvpEvents.map((event) => event.get({ plain: true }));
+    console.log(rsvp)
+
     res.render("dashboard", {
       rsvp,
       events,
