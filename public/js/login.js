@@ -9,7 +9,6 @@ const loginFormHandler = async (event) => {
   const username = userLoginEl.value.trim();
   const password = passLoginEl.value.trim();
 
-  console.log(username, password);
 
   if (username && password) {
     const response = await fetch("/api/user/login", {
