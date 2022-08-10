@@ -20,14 +20,14 @@ userEvent.belongsTo(Event, {
   foreignKey: "event_id",
 });
 
-User.hasMany(userEvent, {
-  foreignKey: "user_id",
-  onDelete: "CASCADE",
-});
+// User.hasMany(userEvent, {
+//   foreignKey: "user_id",
+//   onDelete: "CASCADE",
+// });
 
-userEvent.belongsTo(User, {
-  foreignKey: "user_id",
-});
+// userEvent.belongsTo(User, {
+//   foreignKey: "user_id",
+// });
 
 Event.belongsToMany(User, {
   through: "userEvent",

@@ -159,23 +159,19 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.post("/rsvp/", async (req, res) => {
+router.post("/rsvp/:id", async (req, res) => {
   try {
+    const event_id = req.params.id;
     const usereventData = await userEvent.create({
       ...req.body,
-    });
-    res.status(200).json(usereventData);
-    userEvent.create({
-      event_id: req.body.event_id,
-      user_id: req.body.user_id,
+      event_id: event_id,
 
-    }).then((userData) => {
-      req.sessionStore.save(() => {
-        req.session.userId = req.body.user_id;
-        req.session.loggedIn = true;
+    }).then(() => {
+      req.session.logged_in = true;
 
-        res.json(usereventData);
-      });
+      res.status(200).json(usereventData);
+
+
     });
   } catch (err) {
     res.status(400).json(err);

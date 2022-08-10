@@ -58,14 +58,14 @@ const rsvpButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const event_id = event.target.getAttribute("data-id");
     const user_id = sessionStorage.getItem("userid");
-    const response = await fetch(`/rsvp`, {
+    const response = await fetch(`/rsvp/${event_id}`, {
       method: "POST",
-      body: JSON.stringify({ event_id, user_id }),
+      body: JSON.stringify({ user_id }),
       headers: { "Content-Type": "application/json" },
     });
-
-    if (response.ok) {
-      document.location.replace("/");
+    console.log(response.ok)
+    if (response) {
+      document.location.replace("/dashboard");
     } else {
       alert("Already registered");
     }
