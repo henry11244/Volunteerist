@@ -5,7 +5,6 @@ fetch(`https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id
     .then(data => {
         errorMessage.style.display = 'none'
         cityPicture = data.results[0].links.download
-        console.log(cityPicture);
         var html = document.querySelector('html')
         html.style.backgroundImage = `url("${data.results[0].links.download}")`;
         html.style.backgroundAttachment = "fixed";
