@@ -1,12 +1,17 @@
 {{!-- Category filter --}}
 
 <br>
-<label for="eventFilter" class="filter">By Category:</label>
+<label for="eventFilter" class="filter">Filter By Category:</label>
 <select name="eventFilter" id="categoryFilter">
     <option value="">No Category Specified</option>
     <option value="Cleanup">Clean-up</option>
     <option value="Protest">Protest</option>
     <option value="Fundraiser">Fundraiser</option>
+    <option value="Fundraiser">Children and Youth</option>
+    <option value="Fundraiser">Health</option>
+    <option value="Fundraiser">Wildlife Protection</option>
+    <option value="Fundraiser">Agriculture</option>
+    <option value="Fundraiser">Food Drive</option>
 </select>
 
 {{!-- Location filter --}}
@@ -35,7 +40,7 @@
     <br>
 
     <!-- Loop over each object in the projects array -->
-    <div class="d-flex flex-row event gutters">
+    <div class="d-flex flex-row flex-wrap">
     {{#each events as |event|}}
         <div class="event-card mx-auto col-4">
             <h4 class="">{{event.name}}</h4>

@@ -1,8 +1,7 @@
-const nameSignupEl = document.querySelector("#nameSignup")
-const userSignupEl = document.querySelector("#usernameSignup")
-const passSignupEl = document.querySelector("#passwordSignup")
-const signupBtn = document.querySelector("#sign-up")
-
+const nameSignupEl = document.querySelector("#nameSignup");
+const userSignupEl = document.querySelector("#usernameSignup");
+const passSignupEl = document.querySelector("#passwordSignup");
+const signupBtn = document.querySelector("#sign-up");
 
 const signupFormHandler = async (event) => {
     event.preventDefault();
@@ -30,8 +29,4 @@ const signupFormHandler = async (event) => {
         alert("Please enter a valid password")
     }
 
-};
-
-
-signupBtn.addEventListener("click", signupFormHandler)
-
+signupBtn.addEventListener("click", signupFormHandler);

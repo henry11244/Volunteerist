@@ -11,7 +11,6 @@ Event.belongsTo(User, {
   foreignKey: "admin_id",
 });
 
-
 Event.hasMany(userEvent, {
   foreignKey: "event_id",
   onDelete: "CASCADE",
@@ -20,7 +19,6 @@ Event.hasMany(userEvent, {
 userEvent.belongsTo(Event, {
   foreignKey: "event_id",
 });
-
 
 User.hasMany(userEvent, {
   foreignKey: "user_id",
@@ -31,20 +29,17 @@ userEvent.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-
 Event.belongsToMany(User, {
   through: "userEvent",
-  as: 'eventsforuser',
+  as: "eventsforuser",
   foreignKey: "event_id",
 });
 
 User.belongsToMany(Event, {
   through: "userEvent",
-  as: 'userforevent',
+  as: "userforevent",
   foreignKey: "user_id",
-
 });
-
 
 module.exports = {
   User,

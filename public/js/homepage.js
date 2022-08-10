@@ -6,7 +6,6 @@ const locationfilterBtn = document.querySelector("#locationFilter");
 
 const locationFilterHandler = async (event) => {
   event.preventDefault();
-  const location = locationFilter.value.trim();
 
   console.log("test");
   const location = locationFilter.value.trim();
@@ -77,15 +76,3 @@ const rsvpbutton = document.querySelectorAll(".rsvp");
 rsvpbutton.forEach((button) => {
   button.addEventListener("click", rsvpButtonHandler);
 });
-
-// Setting number of events per row before new row is created
-// var events = document.querySelectorAll(".event")
-// var row;
-
-// for(var i = 0; i < events.length; i++) {
-//     if(i % 3 == 0 {
-//         row = table.insertRow(-1);
-//     }
-//     var ce
-//     )
-// }

@@ -3,7 +3,7 @@
 
 {{#each events as |event|}}
 <div class="event-container">
-    <div class="event-card mb-2" backgroundImage:`url(${{{event.image_url}}})>
+    <div class="event-card mb-2 mx-auto col-4" backgroundImage:`url(${{{event.image_url}}})>
         <h4 class="">{{event.name}}</h4>
         <p>{{event.description}}</p>
         <hr>
@@ -94,7 +94,7 @@
 
     {{#each rsvp as |event|}}
     <div class="event-container">
-        <div class="event-card mb-2" backgroundImage:`url(${{{event.image_url}}})>
+        <div class="event-card mx-auto col-4" backgroundImage:`url(${{{event.image_url}}})>
             <h4 class="">{{rsvp.name}}</h4>
             <p>{{event.description}}</p>
             <hr>
