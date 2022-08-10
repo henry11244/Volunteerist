@@ -26,7 +26,7 @@ const locationFilterHandler = async (event) => {
   }
 };
 
-locationfilterBtn.addEventListener("click", locationFilterHandler);
+locationfilterBtn.addEventListener("change", locationFilterHandler);
 
 // Category filter handler
 const categoryfilterBtn = document.querySelector("#categoryFilter");
@@ -52,7 +52,7 @@ const categoryFilterHandler = async (event) => {
   }
 };
 
-categoryfilterBtn.addEventListener("click", categoryFilterHandler);
+categoryfilterBtn.addEventListener("change", categoryFilterHandler);
 
 const rsvpButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
