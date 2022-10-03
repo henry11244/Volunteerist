@@ -1,30 +1,70 @@
 <h2 class="d-flex justify-content-center">My Events</h2>
 
+<div class="  flex-wrap cardContainer ">
+    {{#each events as |event|}}
 
-{{#each events as |event|}}
-<div class="event-container">
-    <div class="event-card mb-2 mx-auto col-4" backgroundImage:`url(${{{event.image_url}}})>
-        <h4 class="">{{event.name}}</h4>
-        <p>{{event.description}}</p>
-        <hr>
-        <p class="mb-0">Location: {{event.location}}</p>
-        <p class="mb-0">Date: {{event.date}}</p>
-        <p class="mb-0">Time: {{event.time}}</p>
-
-        {{!-- create event modal --}}
-
-
-        <button type="button" class="btn delete" id="delete" data-id="{{event.id}}">Delete</button>
+    <div class="event-card  col-3">
+        <div class="svg-wrapper">
+            <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                <rect class="shape" height="60" width="320" />
+                <h4 class="text">{{event.name}}</h4>
+            </svg>
+        </div>
+        <div class="eventDescription">
+            <p>{{event.description}}</p>
+            <hr>
+            <p class="mb-0">Location: {{event.location}}</p>
+            <p class="mb-0">Date: {{event.date}}</p>
+            <p class="mb-0">Time: {{event.time}}</p>
+            <p class="mb-0">Created by: {{user.username}}</p>
+        </div>
         <br>
+
+        <div class="button">
+
+
+            <button type="button" class="btn delete" id="delete" data-id="{{event.id}}">Delete</button>
+        </div>
+
     </div>
     {{/each}}
+</div>
 
-    <h2 class="d-flex justify-content-center">RSVP Events</h2>
+<h2 class="d-flex justify-content-center">RSVP Events</h2>
 
+<div class="  flex-wrap cardContainer ">
     {{#each rsvp as |rsvp|}}
-    <div class="event-container">
-        <div class="event-card mx-auto col-4" backgroundImage:`url(${{{rsvp.event.image_url}}})>
-            <h4 class="">{{rsvp.event.name}}</h4>
+    <div class="event-card  col-3">
+        <div class="svg-wrapper">
+            <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                <rect class="shape" height="60" width="320" />
+                <h4 class="text">{{rsvp.event.name}}</h4>
+            </svg>
+        </div>
+        <div class="eventDescription">
+            <p>{{rsvp.event.description}}</p>
+            <hr>
+            <p class="mb-0">Location: {{rsvp.event.location}}</p>
+            <p class="mb-0">Date: {{rsvp.event.date}}</p>
+            <p class="mb-0">Time: {{rsvp.event.time}}</p>
+            <p class="mb-0">Created by: {{rsvp.user.username}}</p>
+        </div>
+        <br>
+
+
+    </div>
+    {{/each}}
+</div>
+
+{{!-- {{#each rsvp as |rsvp|}}
+<div class="event-container">
+    <div class="event-card mx-auto col-4" backgroundImage:`url(${{{rsvp.event.image_url}}})>
+
+        <div class="svg-wrapper">
+            <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                <rect class="shape" height="60" width="320" />
+                <h4 class="text">{{rsvp.event.name}}</h4>
+            </svg>
             <p>{{rsvp.event.description}}</p>
             <hr>
             <p class="mb-0">Location: {{rsvp.event.location}}</p>
@@ -33,7 +73,7 @@
             <p class="mb-0">Created by: {{rsvp.event.user.username}}</p>
             <br>
         </div>
-        {{/each}}
+        {{/each}} --}}
 
 
         <script src="js/dashboard.js"></script>

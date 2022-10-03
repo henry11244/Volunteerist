@@ -46,7 +46,6 @@ const categoryFilterHandler = async (event) => {
 
   console.log(category);
   if (category == 'all') {
-    console.log('true')
     document.location.replace(`/`);
   }
   else {
@@ -60,7 +59,6 @@ const categoryFilterHandler = async (event) => {
       });
       if (response.ok) {
         document.location.replace(`/category/${category}`);
-        console.log('test')
       }
     }
   }
