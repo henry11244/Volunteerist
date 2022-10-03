@@ -31,7 +31,7 @@ Our site is deployed through heroku [HERE](https://volunteerists.herokuapp.com/)
 
 Below is a demonstration of a validated user creating a new event through our Material Design Bootstrap modal. The event is then added to the homepage and to their dashboard under "My Events."
 
-![event-creation-demo](public/img/event-creation-demo.gif)
+![event-creation-demo](img/event-creation-demo.gif)
 
 ## Usage
 
@@ -42,7 +42,7 @@ Below is a demonstration of a validated user creating a new event through our Ma
 
 Below is a demonstration of a validated user creating a new event through our Material Design Bootstrap modal. The event is then added to the homepage and to their dashboard under "My Events."
 
-![event-creation-demo](public/img/event-creation-demo.gif)
+![event-creation-demo](img/event-creation-demo.gif)
 
 ## Code Snippet
 

@@ -2,7 +2,7 @@
 
 <br>
 <div class="filterContainer">
-    <label for="eventFilter" class="filter">Filter By Category:</label>
+    <label for="eventFilter" class="filter">Filter By Category: </label>
     <select name="eventFilter" id="categoryFilter">
         <option value="noCategories"></option>
         <option value="all">Remove Filter</option>
@@ -45,6 +45,7 @@
 <!-- Loop over each object in the projects array -->
 <div class="  flex-wrap cardContainer ">
     {{#each events as |event|}}
+
     <div class="event-card  col-3">
         <div class="svg-wrapper">
             <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
@@ -52,18 +53,21 @@
                 <h4 class="text">{{event.name}}</h4>
             </svg>
         </div>
-
-        <p>{{event.description}}</p>
-        <hr>
-        <p class="mb-0">Location: {{event.location}}</p>
-        <p class="mb-0">Date: {{event.date}}</p>
-        <p class="mb-0">Time: {{event.time}}</p>
-        <p class="mb-0">Created by: {{user.username}}</p>
+        <div class="eventDescription">
+            <p>{{event.description}}</p>
+            <hr>
+            <p class="mb-0">Location: {{event.location}}</p>
+            <p class="mb-0">Date: {{event.date}}</p>
+            <p class="mb-0">Time: {{event.time}}</p>
+            <p class="mb-0">Created by: {{user.username}}</p>
+        </div>
         <br>
+
         <div class="button">
 
             <button type="button" class="btn rsvp block" data-id="{{event.id}}">RSVP</button>
         </div>
+
     </div>
     {{/each}}
 </div>
