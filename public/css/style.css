@@ -29,6 +29,7 @@ img {
 
 nav {
     background-color: #F1E3D3;
+    z-index: 99;
 }
 
 .nav {
@@ -124,7 +125,14 @@ nav {
 }
 
 /* Event title border animation */
+.svg-wrapper {
+    display: block;
+    text-align: center;
+}
+
 .shape {
+    display: flex;
+    justify-content: center;
     stroke-dasharray: 140 540;
     stroke-dashoffset: -474;
     stroke-width: 8px;
@@ -147,6 +155,7 @@ nav {
 }
 
 .svg-wrapper:hover .shape {
+    justify-content: center;
     stroke-width: 2px;
     stroke-dashoffset: 0;
     stroke-dasharray: 760;
