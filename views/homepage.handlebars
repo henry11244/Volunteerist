@@ -1,49 +1,58 @@
 {{!-- Category filter --}}
 
 <br>
-<label for="eventFilter" class="filter">Filter By Category:</label>
-<select name="eventFilter" id="categoryFilter">
-    <option value="">No Category Specified</option>
-    <option value="Cleanup">Clean-up</option>
-    <option value="Protest">Protest</option>
-    <option value="Fundraiser">Fundraiser</option>
-    <option value="Fundraiser">Children and Youth</option>
-    <option value="Fundraiser">Health</option>
-    <option value="Fundraiser">Wildlife Protection</option>
-    <option value="Fundraiser">Agriculture</option>
-    <option value="Fundraiser">Food Drive</option>
-</select>
+<div class="filterContainer">
+    <label for="eventFilter" class="filter">Filter By Category:</label>
+    <select name="eventFilter" id="categoryFilter">
+        <option value="noCategories"></option>
+        <option value="all">Remove Filter</option>
+        <option value="Cleanup">Clean-up</option>
+        <option value="Protest">Protest</option>
+        <option value="Fundraiser">Fundraiser</option>
+        <option value="Fundraiser">Children and Youth</option>
+        <option value="Fundraiser">Health</option>
+        <option value="Fundraiser">Wildlife Protection</option>
+        <option value="Fundraiser">Agriculture</option>
+        <option value="Fundraiser">Food Drive</option>
+    </select>
 
-{{!-- Location filter --}}
-<label for="locationFilter" class="filter">Filter By Location:</label>
-<select name="locationFilter" id="locationFilter">
-    <option value="no-location">No Location Specified</option>
-    <option value="Atlanta">Atlanta</option>
-    <option value="boston">Boston</option>
-    <option value="charleston">Charleston</option>
-    <option value="chicago">Chicago</option>
-    <option value="denver">Denver</option>
-    <option value="detroit">Detroit</option>
-    <option value="houston">Houston</option>
-    <option value="kansas-city">Kansas City</option>
-    <option value="los-angeles">Los Angeles</option>
-    <option value="memphis">Memphis</option>
-    <option value="nashville">Nashville</option>
-    <option value="new-york">New York</option>
-    <option value="philadelphia">Philadelphia</option>
-    <option value="portland">Portland</option>
-    <option value="san-diego">San Diego</option>
-    <option value="san-francisco">San Francisco</option>
-    <option value="seattle">Seattle</option>
-</select>
-
+    {{!-- Location filter --}}
+    <label for="locationFilter" class="filter">Filter By Location:</label>
+    <select name="locationFilter" id="locationFilter">
+        <option value="noLocations"></option>
+        <option value="all">Remove Filter</option>
+        <option value="Atlanta">Atlanta</option>
+        <option value="boston">Boston</option>
+        <option value="charleston">Charleston</option>
+        <option value="chicago">Chicago</option>
+        <option value="denver">Denver</option>
+        <option value="detroit">Detroit</option>
+        <option value="houston">Houston</option>
+        <option value="kansas-city">Kansas City</option>
+        <option value="los-angeles">Los Angeles</option>
+        <option value="memphis">Memphis</option>
+        <option value="nashville">Nashville</option>
+        <option value="new-york">New York</option>
+        <option value="philadelphia">Philadelphia</option>
+        <option value="portland">Portland</option>
+        <option value="san-diego">San Diego</option>
+        <option value="san francisco">San Francisco</option>
+        <option value="seattle">Seattle</option>
+    </select>
+</div>
 <br>
 
 <!-- Loop over each object in the projects array -->
-<div class="d-flex flex-row flex-wrap">
+<div class="  flex-wrap cardContainer ">
     {{#each events as |event|}}
-    <div class="event-card mx-auto col-4">
-        <h4 class="">{{event.name}}</h4>
+    <div class="event-card  col-3">
+        <div class="svg-wrapper">
+            <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                <rect class="shape" height="60" width="320" />
+                <h4 class="text">{{event.name}}</h4>
+            </svg>
+        </div>
+
         <p>{{event.description}}</p>
         <hr>
         <p class="mb-0">Location: {{event.location}}</p>
@@ -51,8 +60,10 @@
         <p class="mb-0">Time: {{event.time}}</p>
         <p class="mb-0">Created by: {{user.username}}</p>
         <br>
+        <div class="button">
 
-        <button type="button" class="btn rsvp" data-id="{{event.id}}">RSVP</button>
+            <button type="button" class="btn rsvp block" data-id="{{event.id}}">RSVP</button>
+        </div>
     </div>
     {{/each}}
 </div>

@@ -7,21 +7,29 @@ const locationfilterBtn = document.querySelector("#locationFilter");
 const locationFilterHandler = async (event) => {
   event.preventDefault();
 
-  console.log("test");
+
   const location = locationFilter.value.trim();
+
 
   console.log(location);
 
-  if (location) {
-    const response = await fetch(`/location/${location}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    if (response.ok) {
-      document.location.replace(`/location/${location}`);
+  if (location == 'all') {
+    console.log('true')
+    document.location.replace(`/`);
+  }
+  else {
+
+    if (location) {
+      const response = await fetch(`/location/${location}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+      if (response.ok) {
+        document.location.replace(`/location/${location}`);
+      }
     }
   }
 };
@@ -37,17 +45,23 @@ const categoryFilterHandler = async (event) => {
   const category = categoryFilter.value.trim();
 
   console.log(category);
-
-  if (location) {
-    const response = await fetch(`/category/${category}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    if (response.ok) {
-      document.location.replace(`/category/${category}`);
+  if (category == 'all') {
+    console.log('true')
+    document.location.replace(`/`);
+  }
+  else {
+    if (category) {
+      const response = await fetch(`/category/${category}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+      if (response.ok) {
+        document.location.replace(`/category/${category}`);
+        console.log('test')
+      }
     }
   }
 };
