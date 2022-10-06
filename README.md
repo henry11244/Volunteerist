@@ -2,7 +2,7 @@
 
 ## Description
 
-Volunteerist is an event hosting site with an emphasis on volunteer work. Users can view created events or login to create their own as well as RSVP for other events. Users are able to filter events by location and category.
+Volunteerist is an event hosting website with an emphasis on volunteer work. Users can view created events or login to create their own as well as RSVP for other events. Users are able to filter events by location and category.
 
 ## Table of Contents
 
@@ -45,8 +45,22 @@ We allow users to RSVP to events. This is done on the backend using many to many
 ![Event RSVP](img/RSVP.gif)
 
 <b>Signup/Login/Logout</b>
+<br>
 As with events above, user data is tracked using SQL. Once a user creates an account on the page, that data is saved through our user API. After an account is made, users can login in through the login page, which will send a request to our user API. If the username and password entered matches API response, the user is able to login
 ![Signup/login/logout](img/signup.gif)
+
+<b>Event Container Borders</b>
+
+To add styling to the website, we utilized CSS to add animations to each event card, button and title. 
+
+- Each corner of an event card has different border radius which gives the card a realistic paper style. We then added a CSS animation on hover, which gives the cards a subtle tilt when we hover our curser over them. 
+
+- Similiarly, the RSVP, Delete and Edit buttons utilize CSS for their hover effect. This is accomplished using a border with border-radius' of 100% which creates a circle. We first create a circle using this tatic within each button on hover which then grows in size through CSS animations until it leaves the button. 
+
+- The effect on the title of each event is created using strokes in CSS. Each title starts with a single stroke on the button which transitions into a complete 4-lined border once we hover our curser over the title. The neat effect of the lines moving is completed using the CSS transition property that slowly fills in the borders of the top and sides.
+
+![Border Styles](img/eventCardStyle.gif)
+
 
 ## Usage
 
