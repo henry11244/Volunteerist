@@ -2,7 +2,7 @@
 
 ## Description
 
-Volunteerist is an event hosting site with an emphasis on volunteer work. Users can view created events, or login to create their own and RSVP for other events. Users also have the ability to filter by location and category of event.
+Volunteerist is an event hosting site with an emphasis on volunteer work. Users can view created events or login to create their own as well as RSVP for other events. Users are able to filter events by location and category.
 
 ## Table of Contents
 
@@ -10,7 +10,6 @@ Volunteerist is an event hosting site with an emphasis on volunteer work. Users 
 - [Deployed Link](#deployed-link)
 - [Project Demonstration](#project-demonstration)
 - [Usage](#usage)
-- [Code Snippet](#code-snippet)
 - [Collaborators](#collaborators)
 
 ## Languages and Technologies Used
@@ -28,44 +27,34 @@ Our site is deployed through heroku [HERE](https://volunteerists.herokuapp.com/)
 
 ## Site Demonstration
 
+Below is a demonstration of a user creating and editting an event in addition to signing up, logging in, logging out and RSVPing to events.
 
-Below is a demonstration of a validated user creating a new event through our Material Design Bootstrap modal. The event is then added to the homepage and to their dashboard under "My Events."
+<b>Event Creation </b>
+<br>
+Events are created using a modal created with Material Design Bootstrap. Using JS event listeners, data entered into the modal are sent to our API which saves the created event. Data are maintained using SQL on the backend using Sequalize.
+![Creating Event](img/createEvent.gif)
 
-![event-creation-demo](img/event-creation-demo.gif)
+<b>Edit Event</b>
+<br>
+Similiar to creating an event, we utilze modals to user input on event edits. The inputted data is then saved using Sequalize. 
+![Edit Event](img/editEvent.gif)
+
+<b>Event RSVP</b>
+<br>
+We allow users to RSVP to events. This is done on the backend using many to many relationships between events and users. Once a user RSVP to an event, the relationship between a user and that event is saved, which will then be used to populate RSVP events on a user's dashboard.
+![Event RSVP](img/RSVP.gif)
+
+<b>Signup/Login/Logout</b>
+As with events above, user data is tracked using SQL. Once a user creates an account on the page, that data is saved through our user API. After an account is made, users can login in through the login page, which will send a request to our user API. If the username and password entered matches API response, the user is able to login
+![Signup/login/logout](img/signup.gif)
 
 ## Usage
 
 * Once you navigate to the live applicaiton linked above, you are presented with a hompage that contains a list of volunteering events you may RSVP to.
 * The events can be filtered by category and location using the filter drop-down
-* Once you login, by navigating to the login page through the nav bar, you may view your dashboard containing events that you have created and have RSVP to
+* Once you login, by navigating to the login page through the nav bar, you may view your dashboard containing events that you have created and have RSVP to. You have the ability to edit and delete your events in addition to deleting RSVP events
 * Once you login, you may also create new events using the link in the navigation bar. 
 
-Below is a demonstration of a validated user creating a new event through our Material Design Bootstrap modal. The event is then added to the homepage and to their dashboard under "My Events."
-
-![event-creation-demo](img/event-creation-demo.gif)
-
-## Code Snippet
-
-The code snippet below is from a handlebars template used to render events from the database onto the homepage. Using bootstrap, after three event cards (each taking up 1/3 of the page) have been placed in a row, flex-wrap creates a new row where another 3 cards can be inserted.
-
-```
-<div class="d-flex flex-row flex-wrap">
-    {{#each events as |event|}}
-        <div class="event-card mx-auto col-4">
-            <h4 class="">{{event.name}}</h4>
-            <p>{{event.description}}</p>
-            <hr>
-            <p class="mb-0">Location: {{event.location}}</p>
-            <p class="mb-0">Date: {{event.date}}</p>
-            <p class="mb-0">Time: {{event.time}}</p>
-            <p class="mb-0">Created by: {{user.username}}</p>
-            <br>
-
-            <button type="button" class="btn" data-id="{{event.id}}">RSVP</button>
-        </div>
-    {{/each}}
-     </div>
-```
 
 ## Collaborators
 
