@@ -14,8 +14,12 @@
 
 p {
     text-align: center;
+    font-size: large;
 }
 
+.description {
+    text-align: justify;
+}
 
 body {
     background-color: var(--beige);
@@ -172,19 +176,19 @@ nav {
 }
 
 .button {
-    min-width: 300px;
+    min-width: 200px;
+
     min-height: 60px;
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
     text-transform: uppercase;
     letter-spacing: 1.3px;
     font-weight: 700;
-    color: #313133;
+    color: #8E7DBE;
     background: #99C1B9;
     background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
     border: none;
     border-radius: 1000px;
-    box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
     transition: all 0.3s ease-in-out 0s;
     cursor: pointer;
     outline: none;
@@ -195,7 +199,7 @@ nav {
 .delete,
 .deleteRSVP {
     background: red;
-    box-shadow: 12px 12px 24px rgba(236, 7, 7, 0.64);
+
 }
 
 button::before {

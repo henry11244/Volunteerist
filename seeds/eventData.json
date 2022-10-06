@@ -2,28 +2,28 @@
     {
         "location": "Chicago",
         "name": "Downtown March",
-        "description": "A march that is downtown",
-        "date": "2022-08-04",
+        "description": "Hear ye! Hear ye! Come one, come all, come join us as we march to support breast cancer awareness. We look forward to seeing you there sporting your pinkest attire. ",
+        "date": "2023-08-04",
         "time": "02:00:00",
         "category": "Protest",
         "admin_id": "1"
     },
     {
         "location": "San-Jose",
-        "name": "Charity Fundraiser",
-        "description": "Fundraiser for a charity ",
-        "date": "2022-08-05",
+        "name": "Wildcat Fundraiser",
+        "description": "Put some cats in your life! Come join us for a fun-filled afternoon supporting your local school. Our goal this year is to raise $100,000 to support our young children's minds, build a sensory gym for our autistic students and fund this year's mathlete trip to Washington, D.C. We look forward to seeing you at Chico High School! ",
+        "date": "2023-08-05",
         "time": "02:00:00",
         "category": "Fundraiser",
         "admin_id": "2"
     },
     {
         "location": "San-Francisco",
-        "name": "Beach Cleanup",
-        "description": "A cleanup on a beach",
-        "date": "2022-08-06",
+        "name": "Put the Peddal to the Metal!",
+        "description": "Are you ready to walk and roll? You are invited to participate in the 5th annual walk and roll to support the local cerebral palsy focused programs. ",
+        "date": "2023-01-01",
         "time": "02:00:00",
-        "category": "Cleanup",
+        "category": "Fundraiser",
         "admin_id": "3"
     }
 ]
