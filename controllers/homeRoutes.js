@@ -159,23 +159,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.post("/rsvp/:id", async (req, res) => {
-  try {
-    const event_id = req.params.id;
-    const usereventData = await userEvent.create({
-      ...req.body,
-      event_id: event_id,
-
-    }).then(() => {
-      req.session.logged_in = true;
-
-      res.status(200).json(usereventData);
 
 
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 module.exports = router;

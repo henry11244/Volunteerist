@@ -15,9 +15,27 @@ const delButtonHandler = async (event) => {
     }
 };
 
-
 const deletebutton = document.querySelectorAll('.delete')
 deletebutton.forEach(button => { button.addEventListener('click', delButtonHandler) });
+
+// delete RSVP
+const delRSVPButtonHandler = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+        const eventId = event.target.getAttribute('data-id');
+        const response = await fetch(`/api/rsvp/${eventId}`, {
+            method: 'DELETE',
+        })
+        console.log(response)
+        document.location.replace('/dashboard');
+
+    }
+};
+
+
+
+
+const deleteRSVPbutton = document.querySelectorAll('.deleteRSVP')
+deleteRSVPbutton.forEach(button => { button.addEventListener('click', delRSVPButtonHandler) });
 
 const editFunction = async (event) => {
 

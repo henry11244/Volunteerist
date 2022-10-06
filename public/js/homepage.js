@@ -6,13 +6,7 @@ const locationfilterBtn = document.querySelector("#locationFilter");
 
 const locationFilterHandler = async (event) => {
   event.preventDefault();
-
-
   const location = locationFilter.value.trim();
-
-
-  console.log(location);
-
   if (location == 'all') {
     console.log('true')
     document.location.replace(`/`);
@@ -70,17 +64,14 @@ const rsvpButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const event_id = event.target.getAttribute("data-id");
     const user_id = sessionStorage.getItem("userid");
-    const response = await fetch(`/rsvp/${event_id}`, {
+
+    const response = await fetch(`/api/rsvp/${event_id}`, {
       method: "POST",
       body: JSON.stringify({ user_id }),
       headers: { "Content-Type": "application/json" },
     });
-    console.log(response.ok)
-    if (response) {
-      document.location.replace("/dashboard");
-    } else {
-      alert("Already registered");
-    }
+    document.location.replace("/dashboard");
+    console.log(response)
   }
 };
 

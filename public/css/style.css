@@ -192,6 +192,12 @@ nav {
     padding: 10px;
 }
 
+.delete,
+.deleteRSVP {
+    background: red;
+    box-shadow: 12px 12px 24px rgba(236, 7, 7, 0.64);
+}
+
 button::before {
     content: '';
     border-radius: 1000px;
@@ -230,6 +236,11 @@ button::before {
     left: 50%;
     transform: translate(-50%, -50%);
     animation: ring 1.5s infinite;
+}
+
+.delete::after,
+.deleteRSVP::after {
+    border: 6px solid black;
 }
 
 .button:hover::after,

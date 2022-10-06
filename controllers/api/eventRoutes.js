@@ -25,7 +25,6 @@ router.delete('/:id', async (req, res) => {
             res.status(404).json({ message: 'No event found with this id!' });
             return;
         }
-
         res.status(200).json(eventData);
     } catch (err) {
         res.status(500).json(err);
@@ -33,7 +32,6 @@ router.delete('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-
     try {
         const eventData = await Event.update(req.body, {
             where: {
