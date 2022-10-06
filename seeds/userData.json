@@ -2,16 +2,16 @@
     {
         "name": "Pat Barkley",
         "username": "pbarkley",
-        "password": "password1234"
+        "password": "password"
     },
     {
         "name": "Henry Nguyen",
         "username": "hnguyen",
-        "password": "1234password"
+        "password": "password"
     },
     {
         "name": "Lily Kot",
         "username": "lkot",
-        "password": "12password34"
+        "password": "password"
     }
 ]

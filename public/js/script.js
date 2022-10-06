@@ -1,7 +1,7 @@
 // For creation of new events through modal
 const admin_id = sessionStorage.getItem("userid");
 
-function callback() {
+function addEvent() {
   const nameEl = document.querySelector("#eventName");
   const dateEl = document.querySelector("#eventDate");
   const timeEl = document.querySelector("#eventTime");
@@ -59,7 +59,7 @@ function callback() {
 }
 
 const createbtn = document.querySelector("#createbtn");
-createbtn.addEventListener("click", callback);
+createbtn.addEventListener("click", addEvent);
 
 // Dashboard view
 const dashboard = async (event) => {
